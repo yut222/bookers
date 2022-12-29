@@ -41,18 +41,27 @@
   </ul>
 <% end %>
 
+
 <!-- bookの新規登録機能 -->
 <%= form_with model: @book, url: 'books', method: :post do |f| %>
+<div class="field">
   <label for="title">Title</label>
   <div class="form">
     <%= f.text_field:title %>
   </div>
+</div>
+
+<div class="field">
   <label for="body">Body</label>
   <div class="form">
     <%= f.text_area:body %>
   </div>
+</div>
+
+<div class="field">
   <div class="action">
     <%=f.submit "Create Book"%>
   </div>
+</div>
 <% end %>
 </body>

@@ -35,7 +35,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
    if  @book.update(book_params)
     flash[:notice] = "Book was successfully updated."  # アップデート用フラッシュメッセージ
-    redirect_to book_path(book.id)  #showページにリダイレクトする
+    redirect_to book_path(@book.id)  #showページにリダイレクトする
    else
      render :edit
    end

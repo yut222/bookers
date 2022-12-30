@@ -1,5 +1,5 @@
 <!-- 削除用フラッシュメッセージ -->
-<div>
+<div class="flash">
   <%= flash[:notice] %>
 </div>
 
@@ -30,17 +30,17 @@
   <% end %>
 </table>
 
-<!-- バリデーションエラーメッセージを表示 -->
+
  <h2>New book</h2>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %> errors prohibited this book from being saved:
+<!-- バリデーションエラーメッセージを表示 -->
+<% if @book.errors.any? %>  <!-- エラーが発生しているかどうか -->
+  <%= @book.errors.count %> errors prohibited this book from being saved:  <!-- 何件のエラーが発生しました -->
   <ul>
-    <% @book.errors.full_messages.each do |message| %>
+    <% @book.errors.full_messages.each do |message| %>  <!-- errors.full_massagesでエラーの内容を出力 -->
     <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
-
 
 <!-- bookの新規登録機能 -->
 <%= form_with model: @book, url: 'books', method: :post do |f| %>

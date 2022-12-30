@@ -6,25 +6,26 @@ class BooksController < ApplicationController
 
 # 投稿一覧
   def index
-    @books = Book.all
+    @books = Book.all  #bookテーブルの全情報を取得して、@books(複数形)に格納
     @book = Book.new
   end
 
-# 編集機能
+# 詳細画面
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id])  #bookテーブルから1つずつ取得したデータを、@book(単数形)に格納
   end
 
+# 編集
   def edit
     @book = Book.find(params[:id])
   end
 
 # bookの新規登録に保存機能を追記
   def create
-      @book = Book.new(book_params) #データを受け取り新規登録するためのインスタンス作成(Book.new)
+      @book = Book.new(book_params)  #データを受け取り新規登録するためのインスタンス作成(Book.new),表示レコードを変える(params)
     if @book.save  #データをデータベースに保存するためのsaveメソッド実行
       flash[:notice] = "Book was successfully created."  # 保存用フラッシュメッセージ
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id)  # book(Prefix)_path(@book(上記showで@bookのため).id)
     else
       @books = Book.all  #すべてのリストを取り出すから、@books複数形にした
       render :index  # render :アクション名で、同じコントローラ内の別アクションのViewを表示

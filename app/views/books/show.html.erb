@@ -3,12 +3,12 @@
 </div>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Title:</strong>  <!-- controllerのshowアクションに記述した@bookのデータのカラムを表示 -->
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Body:</strong>  <!--# controllerのshowアクションに記述した@bookのデータのカラムを表示 -->
   <%= @book.body %></p>
 </p>
 
@@ -17,5 +17,5 @@
 
 
 <%= link_to "Edit", edit_book_path(@book.id) %>
- | 
+ |
 <%= link_to "Back", "/books"%>

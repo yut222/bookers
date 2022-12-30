@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get 'homes/top' => 'homes#top'
 
-  resources :books
+  resources :books  #rails routes ターミナルでルーティングを確認(ページを表示するため)
 end
